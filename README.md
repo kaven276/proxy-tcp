@@ -9,6 +9,10 @@ npm -g install proxy-tcp
 
 运行：推荐使用 [pm2](http://pm2.keymetrics.io/)
 
+第一个参数为配置文件的路径，其中 .mapping 中设置端口映射关系。
+
+### by pm2
+
 ```shell
 cd `npm -g root`/proxy-tcp
 pm2 start . --name proxy-tcp --instances 2 -- "./example/pm2.json"
@@ -21,6 +25,13 @@ pm2 start `npm -g root`/proxy-tcp/example/pm2.json
 ```
 
 edit pm2.json, change mapping part to meet your requirement.
+
+
+### direct from shell
+
+```
+proxy-tcp `npm -g root`/proxy-tcp/example/pm2.json
+```
 
 introduce
 ===========
