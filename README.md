@@ -27,6 +27,14 @@ introduce
 
 连接内网被屏蔽互联网访问的 tcp 服务，如 oracle
 
+```text
+                               (directly)
+                          / -------------------> \
+client ------> proxy-tcp                          target(TCP server)
+             (TCP server) \ --- http tunnel ---> /
+                                    ^
+               (http server that accept method:connect request)
+```
 
 客户端侧启动 port mapper，将连接到本地端口的连接接续到最终目标监听地址，包括两种方式：
 

@@ -7,6 +7,7 @@
   },
   "description": "map local port to remote address directly or by http tunnel, bypass firewall, expose less service port to external network like internet",
   "main": "server.js",
+  "bin": "./server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

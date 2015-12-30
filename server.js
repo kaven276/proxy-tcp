@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+"use strict"
+
 var net = require('net')
   , http = require('http')
   , https = require('https')
