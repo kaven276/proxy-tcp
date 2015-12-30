@@ -3,7 +3,9 @@
 
 安装
 
+```shell
 npm -g install proxy-tcp
+```
 
 运行：推荐使用 [pm2](http://pm2.keymetrics.io/)
 
