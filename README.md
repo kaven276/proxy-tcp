@@ -7,12 +7,16 @@ npm -g install proxy-tcp
 
 运行：推荐使用 [pm2](http://pm2.keymetrics.io/)
 
+```shell
 cd `npm -g root`/proxy-tcp
 pm2 start . --name proxy-tcp --instances 2 -- "./example/pm2.json"
+```
 
 or
 
+```shell
 pm2 start `npm -g root`/proxy-tcp/example/pm2.json
+```
 
 edit pm2.json, change mapping part to meet your requirement.
 
