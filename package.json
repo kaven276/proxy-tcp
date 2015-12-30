@@ -1,0 +1,25 @@
+{
+  "name": "proxy-tcp",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kaven276/proxy-tcp.git"
+  },
+  "description": "map local port to remote address directly or by http tunnel, bypass firewall, expose less service port to external network like internet",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tcp",
+    "forward",
+    "proxy",
+    "http",
+    "tunnel"
+  ],
+  "author": "kaven276@vip.sina.com",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.2.0"
+  }
+}

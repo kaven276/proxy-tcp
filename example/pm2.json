@@ -1,0 +1,22 @@
+{
+  "name": "proxy-tcp",
+  "env": {
+    "NODE_ENV": "test",
+    "DEBUG": "*"
+  },
+  "cwd": "/users/cuccpkfs/dev/project/net/proxy-tcp",
+  "script": ".",
+  "args": [
+    "./example/pm2.json"
+  ],
+  "instances": 4,
+  "mapping": {
+    "127.0.0.1:6003": {
+      "target": "qhtdb1:61521",
+      "proxy": "localhost:80"
+    },
+    ":6001": {
+      "target": "qhtdb1:61521"
+    }
+  }
+}
