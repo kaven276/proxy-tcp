@@ -66,6 +66,15 @@ client ------> proxy-tcp                          target(TCP server)
 }
 ```
 
+```text
+mapping := (
+    key: {
+        target: "host:port",
+        proxy?: "host:port"
+    }
+)
+```
+
 1. key 为监听地址，格式如 ip:port，其中ip为监听多个地址中的那个地址，可以为空(默认监听所有地址)
 2. 配置项中有 proxy 的代表要通过 http tunnel 接续，target 地址必须是 http tunnel proxy 可以解析和访问的地址
 3. 配置项中没有 proxy 的代表要直接连接最终目标地址，target 地址必须是本 tcp proxy 可以解析和访问的地址
@@ -89,6 +98,15 @@ In DMZ
 1. 在DMZ 部署带有应用逻辑的软件不方便，因为受到网络访问限制，更新调试都受到影响
 2. 有了本代理，将DMZ两侧TCP连接接续，又不破坏企业的防火墙配置策略，避免和运维单位人员冲突
 3. 对于内外侧的网络应用程序，开发时完全不用考虑DMZ的影响，只当是可以直连，不必修改架构
+
+with DMZ http tunnel
+--------------------
+
+如果 DMZ 防火墙策略规定只能留一个对外部监听端口，
+那么可以部署一个一次性且配置不会改变的 http tunnel(参考 [uniproxy](https://github.com/kaven276/uniproxy))，
+然后再外网部署本TCP代理，配置通过 http tunnel 代理连接到目的内网地址。
+这样，以后不管添加多少网络接续配置，都不用去DMZ对 http tunnel 做任何变动，
+只要在外网修改本TCP代理的配置即可，维护十分方便。
 
 
 hide internal TCP service behind firewall, access through exposed http service
