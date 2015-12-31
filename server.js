@@ -50,8 +50,7 @@ Object.keys(mapping).forEach(function(laddr){
         .on('connect', function(res, tc, head){
           log('connected to tunnel');
           tc.unshift(head);
-          tc.pipe(c);
-          c.pipe(tc);
+          tc.pipe(c).pipe(tc);
         })
         .end();
     } else {
@@ -61,8 +60,7 @@ Object.keys(mapping).forEach(function(laddr){
         , tarPort = parseInt(targets[1])
         ;
       var tc = net.connect(tarPort, tarHost, function(){
-        tc.pipe(c);
-        c.pipe(tc);
+        tc.pipe(c).pipe(tc);
       });
     }
 
